@@ -3,7 +3,7 @@ FROM ubuntu:latest
 RUN <<EOF
 apt-get update
 apt-get -y upgrade
-apt-get -y install net-tools curl jq yq wget gpg iputils-ping iputils-tracepath ethtool dnsutils iperf iperf3 htop iftop nmap ncat tcpdump traceroute tcptraceroute krb5-user krb5-pkinit msktutil
+apt-get -y install net-tools curl jq yq wget gpg iputils-ping iputils-tracepath ethtool dnsutils iperf iperf3 htop iftop nmap ncat tcpdump traceroute tcptraceroute krb5-user krb5-pkinit msktutil tshark 
 EOF
 
 RUN <<EOF
