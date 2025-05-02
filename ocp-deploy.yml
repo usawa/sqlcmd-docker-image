@@ -1,0 +1,26 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: sqlcmd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqlcmd
+  template:
+    metadata:
+      labels:
+        app: sqlcmd
+    spec:
+      containers:
+        - name: container
+          image: 'usawa/sqlcmd:latest'
+          command:
+            - /bin/bash
+          args:
+            - '-c'
+            - while true; do echo Alive; sleep 60;done
+          imagePullPolicy: Always
+      restartPolicy: Always
+  strategy:
+    type: Recreate

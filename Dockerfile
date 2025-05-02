@@ -14,6 +14,9 @@ apt-get update
 ACCEPT_EULA=Y apt-get -y install mssql-tools18 unixodbc-dev
 EOF
 
+RUN rm /usr/bin/sh && ln -s /usr/bin/bash /usr/bin/sh
+
+
 COPY files/tcping /usr/local/bin/tcping
 
 ENV HOSTNAME=sqlcmd
@@ -24,4 +27,4 @@ WORKDIR /root
 # Fix permissions for OpenShift and tshark
 RUN chmod -R g=u /root
 
-CMD ["bash"]
+ENTRYPOINT ["/usr/bin/bash"]
